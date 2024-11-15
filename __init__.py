@@ -5,6 +5,9 @@ import socket
 
 
 def get_gw():
+    """
+    get the default gateway.
+    """
     ipconfig = subprocess.run(['ipconfig'], shell=True, capture_output=True)
     ipconfig = str(ipconfig.stdout.decode())
 
@@ -25,10 +28,16 @@ def get_gw():
 
 
 def get_ip():
+    """
+    get the ip address.
+    """
     return socket.gethostbyname(socket.gethostname())
         
 
 def isnumber(value):
+    """
+    check if value can be converted to an integer.
+    """
     if type(value) == int:
         return True
     if type(value) != str:

@@ -6,4 +6,4 @@
 2. get_gw():
     get the default gateway.
 3. get_ip():
-    get the ipv4 address. if there isn't, return 127.0.0.1.
+    get the ip address. if there isn't, return 127.0.0.1.
