@@ -7,3 +7,6 @@
     get the default gateway.
 3. get_ip():
     get the ip address. if there isn't, return 127.0.0.1.
+
+# **important!**
+**every reference of a func module in any of my other repositorys is a mention to this repository.**
