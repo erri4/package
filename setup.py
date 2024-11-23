@@ -47,6 +47,10 @@ if i == 'WebsocketServer':
     current_directory = os.getcwd()
     pip_bat_path = os.path.join(current_directory, 'pip.bat')
     subprocess.run([pip_bat_path, 'WebsocketServer', version, preversion])
+    with open('C:/users/reef/documents/websocket/README.md', 'r') as readme:
+        new = readme.read().replace(f'https://erri4.github.io/package/filesforpip/WebsocketServer-{preversion}-py3-none-any.whl', f'https://erri4.github.io/package/filesforpip/WebsocketServer-{version}-py3-none-any.whl')
+    with open('C:/users/reef/documents/websocket/README.md', 'w') as readme:
+        readme.write(new)
 elif i == 'functions':
     preversion = ''
     with open('functions/version.txt', 'r') as file:
