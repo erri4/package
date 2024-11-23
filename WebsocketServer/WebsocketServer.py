@@ -241,9 +241,12 @@ class WebsocketServer:
             client_thread.start()
 
 
-    def start(self) -> None:
+    def start(self, threaded: bool = False) -> None:
         """
         start the websocket server.
         """
-        self.thread = threading.Thread(target=self.run_forever, daemon=True)
-        self.thread.start()
+        if threaded:
+            self.thread = threading.Thread(target=self.run_forever, daemon=True)
+            self.thread.start()
+        else:
+            self.run_forever()

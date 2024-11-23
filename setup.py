@@ -1,12 +1,33 @@
 from setuptools import setup, find_packages
+import subprocess
+import os
 
 
 i = input('module: ')
 
 if i == 'WebsocketServer':
+    preversion = ''
+    with open('WebsocketServer/version.txt', 'r') as file:
+        preversion = file.read()
+    ls = preversion.split('.')
+    ls = list(map(lambda v: int(v), ls))
+    if ls[2] == 9:
+        if ls[1] == 9:
+            ls[2] = 0
+            ls[1] = 0
+            ls[0] += 1
+        else:
+            ls[2] = 0
+            ls[1] += 1
+    else:
+        ls[2] += 1
+    ls = list(map(lambda v: str(v), ls))
+    version = '.'.join(ls)
+    with open('WebsocketServer/version.txt', 'w') as file:
+        file.write(version)
     setup(
         name='WebsocketServer',
-        version='0.1.0',
+        version=version,
         packages=find_packages(),
         author='erri4',
         description='a websocket server interface. easy to use.',
@@ -17,11 +38,38 @@ if i == 'WebsocketServer':
             'Programming Language :: Python :: 3',
             'Operating System :: OS Independent',
         ],
+        entry_points={
+            'console_scripts': [
+                'websocketserver=WebsocketServer.CLI:main',
+            ],
+        },
     )
+    current_directory = os.getcwd()
+    pip_bat_path = os.path.join(current_directory, 'pip.bat')
+    subprocess.run([pip_bat_path, 'WebsocketServer', version, preversion])
 elif i == 'functions':
+    preversion = ''
+    with open('functions/version.txt', 'r') as file:
+        preversion = file.read()
+    ls = preversion.split('.')
+    ls = list(map(lambda v: int(v), ls))
+    if ls[2] == 9:
+        if ls[1] == 9:
+            ls[2] = 0
+            ls[1] = 0
+            ls[0] += 1
+        else:
+            ls[2] = 0
+            ls[1] += 1
+    else:
+        ls[2] += 1
+    ls = list(map(lambda v: str(v), ls))
+    version = '.'.join(ls)
+    with open('functions/version.txt', 'w') as file:
+        file.write(version)
     setup(
         name='functions',
-        version='0.1.0',
+        version=version,
         packages=find_packages(),
         author='erri4',
         description='some useful functions.',
@@ -33,3 +81,6 @@ elif i == 'functions':
             'Operating System :: OS Independent',
         ],
     )
+    current_directory = os.getcwd()
+    pip_bat_path = os.path.join(current_directory, 'pip.bat')
+    subprocess.run([pip_bat_path, 'functions', version, preversion])
