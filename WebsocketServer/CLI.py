@@ -21,7 +21,7 @@ def main():
     global message_received
     host = '127.0.0.1'
     port = 5001
-    parser = argparse.ArgumentParser(description="a simple command-line websocket server.")
+    parser = argparse.ArgumentParser(description="run a simple command-line websocket server.")
     parser.add_argument('-H', '--host', type=str, help="host for the websocket server.", required=False)
     parser.add_argument('-p', '--port', type=int, help="the port of the websocket server.", required=False)
     parser.add_argument('-new', '--new-client', type=str, help="the name of the function called when a new client connected.", required=False)
