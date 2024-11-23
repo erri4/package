@@ -22,14 +22,14 @@ def main():
     host = '127.0.0.1'
     port = 5001
     parser = argparse.ArgumentParser(description="a simple command-line websocket server.")
-    parser.add_argument('-H', '--host', type=str, help="", required=False)
-    parser.add_argument('-p', '--port', type=int, help="", required=False)
-    parser.add_argument('-new', '--new-client', type=str, help="", required=False)
-    parser.add_argument('-new-mod', '--new-client-module', type=str, help="", required=False)
-    parser.add_argument('-msg', '--message-received', type=str, help="", required=False)
-    parser.add_argument('-msg-mod', '--message-received-module', type=str, help="", required=False)
-    parser.add_argument('-left', '--client-left', type=str, help="", required=False)
-    parser.add_argument('-left-mod', '--client-left-module', type=str, help="", required=False)
+    parser.add_argument('-H', '--host', type=str, help="host for the websocket server.", required=False)
+    parser.add_argument('-p', '--port', type=int, help="the port of the websocket server.", required=False)
+    parser.add_argument('-new', '--new-client', type=str, help="the name of the function called when a new client connected.", required=False)
+    parser.add_argument('-new-mod', '--new-client-module', type=str, help="the name of the module to import the new client function.", required=False)
+    parser.add_argument('-msg', '--message-received', type=str, help="the name of the function called when a new message received.", required=False)
+    parser.add_argument('-msg-mod', '--message-received-module', type=str, help="the name of the module to import the message received function.", required=False)
+    parser.add_argument('-left', '--client-left', type=str, help="the name of the function called when a client left.", required=False)
+    parser.add_argument('-left-mod', '--client-left-module', type=str, help="the name of the module to import the client left function.", required=False)
     args = parser.parse_args()
     if args.host:
         host = args.host
