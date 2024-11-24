@@ -4,6 +4,18 @@ import argparse
 import WebsocketServer as ws
 
 
+def new_client(client):
+    print('a new client connected')
+
+
+def client_left(client):
+    print('a client left')
+
+
+def message_received(client, msg):
+    print(f'a client sent: {msg}')
+
+
 def main():
     parser = argparse.ArgumentParser(description="Start a WebSocket server.",
                                      usage='''\n
@@ -23,6 +35,9 @@ server running on 127.0.0.1:5001...
     host = args.host
     port = args.port
     globals()[server_name] = ws.WebsocketServer(host, port)
+    globals()[server_name].set_fn_client_left(client_left)
+    globals()[server_name].set_fn_message_received(message_received)
+    globals()[server_name].set_fn_new_client(new_client)
     banner = f"python {sys.version} on {sys.platform}\nImporting WebsocketServer..."
     console = code.InteractiveConsole(locals=globals())
     console.interact(banner=banner)
