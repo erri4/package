@@ -245,6 +245,7 @@ class WebsocketServer:
         """
         start the websocket server.
         """
+        print(f'server running on {self.host}:{self.port}...')
         if threaded:
             self.thread = threading.Thread(target=self.run_forever, daemon=True)
             self.thread.start()
