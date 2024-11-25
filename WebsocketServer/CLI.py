@@ -17,14 +17,16 @@ def message_received(client, msg):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Start a WebSocket server.",
-                                     usage='''\n
-websocketserver myserver 127.0.0.1 5001
->>>from mymodule import new_client, message_received, client_left
->>>myserver.set_fn_client_left(client_left)
->>>myserver.set_fn_message_received(message_received)
->>>myserver.set_fn_new_client(new_client)
->>>server.start()
+    parser = argparse.ArgumentParser(usage='''\n
+this command create an instance of the websocket server class.
+
+example usage:\n
+websocketserver myserver 127.0.0.1 5001 # create an instance on port 5001 and host 127.0.0.1
+>>>from mymodule import new_client, message_received, client_left # import the functions you want to use
+>>>myserver.set_fn_client_left(client_left) # set the client_left function
+>>>myserver.set_fn_message_received(message_received) # set the message_received function
+>>>myserver.set_fn_new_client(new_client) # set the new_client function
+>>>server.start() # start the server
 server running on 127.0.0.1:5001...
                                     ''')
     parser.add_argument('server_name', type=str, help="The name of the server instance (e.g., 'MyServer').")
