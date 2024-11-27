@@ -34,16 +34,18 @@ def get_ip():
     return socket.gethostbyname(socket.gethostname())
         
 
-def isnumber(value):
+def isnumber(value: str | int | float):
     """
     check if value can be converted to an integer.
     """
-    if type(value) == int:
+    if type(value) == int or type(value) == float:
         return True
     if type(value) != str:
         return False
     if value == '':
         return False
+    if len(value.split('.')) == 2:
+        return isnumber(value.split('.')[0]) and isnumber(value.split('.')[1])
     rt = list(value)
     if rt[0] == "-" and not value == "-":
         for i in range(1, len(rt)):
