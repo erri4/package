@@ -7,3 +7,6 @@
     get the default gateway.
 3. get_ip():
     get the ip address. if there isn't, return 127.0.0.1.
+
+# installation :
+> pip install https://erri4.github.io/package/filesforpip/functions-0.1.1-py3-none-any.whl

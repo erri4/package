@@ -51,6 +51,14 @@ if i == 'WebsocketServer':
         new = readme.read().replace(f'https://erri4.github.io/package/filesforpip/WebsocketServer-{preversion}-py3-none-any.whl', f'https://erri4.github.io/package/filesforpip/WebsocketServer-{version}-py3-none-any.whl')
     with open('C:/users/reef/documents/websocket/README.md', 'w') as readme:
         readme.write(new)
+    with open('README.md', 'r') as readme:
+        new = readme.read().replace(f'https://erri4.github.io/package/filesforpip/WebsocketServer-{preversion}-py3-none-any.whl', f'https://erri4.github.io/package/filesforpip/WebsocketServer-{version}-py3-none-any.whl')
+    with open('README.md', 'w') as readme:
+        readme.write(new)
+    with open('WebsocketServer.md') as readme:
+        new = readme.read().replace(f'https://erri4.github.io/package/filesforpip/WebsocketServer-{preversion}-py3-none-any.whl', f'https://erri4.github.io/package/filesforpip/WebsocketServer-{version}-py3-none-any.whl')
+    with open('WebsocketServer.md', 'w') as readme:
+        readme.write(new)
 elif i == 'functions':
     preversion = ''
     with open('functions/version.txt', 'r') as file:
@@ -88,3 +96,11 @@ elif i == 'functions':
     current_directory = os.getcwd()
     pip_bat_path = os.path.join(current_directory, 'pip.bat')
     subprocess.run([pip_bat_path, 'functions', version, preversion])
+    with open('README.md', 'r') as readme:
+        new = readme.read().replace(f'https://erri4.github.io/package/filesforpip/functions-{preversion}-py3-none-any.whl', f'https://erri4.github.io/package/filesforpip/functions-{version}-py3-none-any.whl')
+    with open('README.md', 'w') as readme:
+        readme.write(new)
+    with open('functions.md') as readme:
+        new = readme.read().replace(f'https://erri4.github.io/package/filesforpip/functions-{preversion}-py3-none-any.whl', f'https://erri4.github.io/package/filesforpip/functions-{version}-py3-none-any.whl')
+    with open('functions.md', 'w') as readme:
+        readme.write(new)

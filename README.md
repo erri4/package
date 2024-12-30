@@ -22,3 +22,10 @@
 
 # **important!**
 **every reference of a pypackage module in any of my other repositorys is a mention to this repository.**
+
+# installation :
+1. functions:
+> pip install https://erri4.github.io/package/filesforpip/functions-0.1.1-py3-none-any.whl
+
+2. WebsocketServer:
+> pip install https://erri4.github.io/package/filesforpip/WebsocketServer-0.1.3-py3-none-any.whl
