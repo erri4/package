@@ -29,9 +29,9 @@ websocketserver myserver 127.0.0.1 5001 # create an instance on port 5001 and ho
 >>>server.start() # start the server
 server running on 127.0.0.1:5001...
                                     ''')
-    parser.add_argument('server_name', type=str, help="The name of the server instance (e.g., 'MyServer').")
-    parser.add_argument('host', help="The host address for the WebSocket server.")
-    parser.add_argument('port', type=int, help="The port number for the WebSocket server.")
+    parser.add_argument('server_name', default='server', type=str, help="The name of the server instance (e.g., 'MyServer').")
+    parser.add_argument('host', default='127.0.0.1', help="The host address for the WebSocket server.")
+    parser.add_argument('port', default='5001', type=int, help="The port number for the WebSocket server.")
     args = parser.parse_args()
     server_name = args.server_name
     host = args.host

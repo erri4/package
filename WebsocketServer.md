@@ -9,4 +9,4 @@
 - server().set_fn_message_recived(fn)
 
 # installation :
-> pip install https://erri4.github.io/package/filesforpip/WebsocketServer-0.1.3-py3-none-any.whl
+> pip install https://erri4.github.io/package/filesforpip/WebsocketServer-0.1.4-py3-none-any.whl
