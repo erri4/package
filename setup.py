@@ -2,6 +2,10 @@ from setuptools import setup, find_packages
 import subprocess
 import os
 
+#########################################
+#python setup.py bdist_wheel
+#########################################
+
 
 i = input('module: ')
 
@@ -104,3 +108,43 @@ elif i == 'functions':
         new = readme.read().replace(f'https://erri4.github.io/package/filesforpip/functions-{preversion}-py3-none-any.whl', f'https://erri4.github.io/package/filesforpip/functions-{version}-py3-none-any.whl')
     with open('functions.md', 'w') as readme:
         readme.write(new)
+elif i == 'rickrollblocker':
+    preversion = ''
+    with open('rickrollblocker/version.txt', 'r') as file:
+        preversion = file.read()
+    ls = preversion.split('.')
+    ls = list(map(lambda v: int(v), ls))
+    if ls[2] == 9:
+        if ls[1] == 9:
+            ls[2] = 0
+            ls[1] = 0
+            ls[0] += 1
+        else:
+            ls[2] = 0
+            ls[1] += 1
+    else:
+        ls[2] += 1
+    ls = list(map(lambda v: str(v), ls))
+    version = '.'.join(ls)
+    with open('rickrollblocker/version.txt', 'w') as file:
+        file.write(version)
+    setup(
+        name='rickrollblocker',
+        version=version,
+        packages=find_packages(),
+        author='erri4',
+        description='A blocker for rickroll trolls.',
+        url='https://github.com/erri4/package',
+        classifiers=[
+            'Programming Language :: Python :: 3',
+            'Operating System :: OS Independent',
+        ],
+        entry_points={
+            'console_scripts': [
+                'rickrollblocker=rickrollblocker.CLI:main',
+            ],
+        },
+    )
+    current_directory = os.getcwd()
+    pip_bat_path = os.path.join(current_directory, 'pip.bat')
+    subprocess.run([pip_bat_path, 'rickrollblocker', version, preversion])
