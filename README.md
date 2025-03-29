@@ -29,3 +29,6 @@
 
 2. WebsocketServer:
 > pip install https://erri4.github.io/package/filesforpip/WebsocketServer-0.1.4-py3-none-any.whl
+
+3. DBConnectionPool:
+> pip install https://erri4.github.io/package/filesforpip/DBConnectionPool-0.0.1-py3-none-any.whl
