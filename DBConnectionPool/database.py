@@ -41,9 +41,13 @@ class ConnectionPool(interfaces.ConnectionPoolInterface):
             """
             store the data.
             
-            <code>sqlres: list of dictionarys: </code> the data itself.<br>
-            <code>rowcount: integer: </code> the rowcount.<br>
-            <code>close: callable: </code> a disconnect function.
+            <code>sqlres: list of dictionarys:</code> the data itself.<br>
+            sqlres is build like this:
+            [row1, row2, ...]
+            each row is:
+            {column1: value, column2: value, ...}<br>
+            <code>rowcount: integer:</code> the rowcount.<br>
+            <code>close: callable:</code> a disconnect function.
             
             <code>return: None. </code>
             """
