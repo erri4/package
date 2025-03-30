@@ -87,7 +87,8 @@ class ConnectionPool(interfaces.ConnectionPoolInterface):
         """
         runs sql in the database.
 
-        <code>sql: string: </code> the sql to be runned.
+        <code>sql: string:</code> the sql to be runned.
+        <code>placeholders: tuple | None:</code> placeholders to variables to protect from sql injection attacks.
 
         <code>return: integer: </code> the rowcount.
         """
