@@ -83,7 +83,7 @@ class ConnectionPool(interfaces.ConnectionPoolInterface):
             conn.close()
 
 
-    def runsql(self, sql: str) -> int:
+    def runsql(self, sql: str, placeholders: tuple | None = None) -> int:
         """
         runs sql in the database.
 
@@ -95,7 +95,7 @@ class ConnectionPool(interfaces.ConnectionPoolInterface):
         conn = self._connect()
         with conn.cursor() as cursor:
             cursor: pymysql.cursors.DictCursor
-            cursor.execute(sql)
+            cursor.execute(sql, placeholders)
             conn.commit()
             r = cursor.rowcount
         self._disconnect(conn)
