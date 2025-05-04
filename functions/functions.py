@@ -36,7 +36,7 @@ def get_ip():
         
 
 def isnumber(data: str | int | float):
-    if not type(data) in [int, float]: return False
+    if type(data) in [int, float]: return True
     if type(data) != str: return False
     return bool(re.match(r"^[+-]?\d+(\.\d+)?$", data))
 
