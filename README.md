@@ -25,7 +25,7 @@
 
 # installation :
 1. functions:
-> pip install https://erri4.github.io/package/filesforpip/functions-0.1.1-py3-none-any.whl
+> pip install https://erri4.github.io/package/filesforpip/functions-0.1.2-py3-none-any.whl
 
 2. WebsocketServer:
 > pip install https://erri4.github.io/package/filesforpip/WebsocketServer-0.1.4-py3-none-any.whl
